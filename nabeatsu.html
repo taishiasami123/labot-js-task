@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta lang="ja">
+    <title>ナベアツ課題</title>
+</head>
+
+<body>
+    <script>
+        const isContains3 = num => {
+            if (num % 10 === 3 || (num - (num % 10)) / 3 === 10) {
+                // 3を含む時
+                return true;
+            }
+            else {
+                // 3を含まない時
+                return false;
+            }
+        }
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0) {
+                // 3の倍数
+                console.log(`${i}!`)
+            }
+            else if (isContains3(i)) {
+                // 3を含む時
+                console.log(`${i}!`)
+            }
+            else {
+                // それ以外
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+
+</html>
