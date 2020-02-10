@@ -8,27 +8,34 @@
 
 <body>
     <script>
+        // 3を含むかどうかの判定
         const isContains3 = num => {
-            if (num % 10 === 3 || (num - (num % 10)) / 3 === 10) {
+            while (true) {
                 // 3を含む時
-                return true;
-            }
-            else {
+                if (num % 10 === 3) {
+                    return true;
+                }
+                num -= num % 10;
+                num /= 10;
                 // 3を含まない時
-                return false;
+                if (num === 0) {
+                    return false;
+                }
             }
         }
         for (let i = 1; i <= 100; i++) {
+            // 3の倍数
             if (i % 3 === 0) {
-                // 3の倍数
                 console.log(`${i}!`);
             }
+            // 文字列取得でやる方法↓↓↓
+            // else if (i.toString().match(/3/)) {
+            // 3を含む時
             else if (isContains3(i)) {
-                // 3を含む時
                 console.log(`${i}!`);
             }
+            // それ以外
             else {
-                // それ以外
                 console.log(i);
             }
         }
